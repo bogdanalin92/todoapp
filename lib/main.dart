@@ -1,4 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:todoapp/mainScreen.dart';
+
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(const TodoApp());
+}
 
 class TodoApp extends StatefulWidget {
   const TodoApp({super.key});
@@ -10,6 +16,14 @@ class TodoApp extends StatefulWidget {
 class _TodoAppState extends State<TodoApp> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return MaterialApp(
+      title: 'Todo App',
+      theme: ThemeData(
+        primarySwatch: Colors.lightGreen,
+        primaryColor: Colors.lightGreen[700],
+        useMaterial3: true,
+      ),
+      home: MainScreen(),
+    );
   }
 }
