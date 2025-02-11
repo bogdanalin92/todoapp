@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:todoapp/mainScreen.dart';
 
@@ -17,6 +18,7 @@ class _TodoAppState extends State<TodoApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: kDebugMode,
       title: 'Todo App',
       theme: ThemeData(
         primarySwatch: Colors.lightGreen,

@@ -11,6 +11,12 @@
             "type": "dart"
         },
         {
+            "name": "todoapp (debug mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "debug"
+        },
+        {
             "name": "todoapp (profile mode)",
             "request": "launch",
             "type": "dart",
