@@ -12,17 +12,33 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  String _menuString = "Menu";
+  final List<TaskItemValue> _tasks = [];
+  void changeMenuString({required TaskItemValue taskItem}) async {
+    // Make the function async
+    bool taskExists = _tasks.any((element) => element.title == taskItem.title);
 
-  List<TaskItemValue> _tasks = [
-    new TaskItemValue(title: "Task 1", isDone: false),
-  ];
-  void changeMenuString({required TaskItemValue taskItem}) {
-    setState(() {
-      _tasks
-          .add(taskItem ?? new TaskItemValue(title: "No title", isDone: false));
-      Navigator.pop(context);
-    });
+    if (taskExists) {
+      await showDialog(
+        // Wait for dialog response
+        context: context,
+        builder: (context) => AlertDialog(
+          title: const Text("Already a task with the same name exists!"),
+          content: const Text("Already exist!"),
+          actions: [
+            TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: const Text("Ok"))
+          ],
+        ),
+      );
+    } else {
+      setState(() {
+        _tasks.add(taskItem);
+      });
+    }
+    Navigator.pop(context);
   }
 
   @override
@@ -82,7 +98,17 @@ class _MainScreenState extends State<MainScreen> {
                 contentPadding: const EdgeInsets.all(20.0),
                 enableFeedback: true,
                 horizontalTitleGap: 10,
-                leading: const Icon(FeatherIcons.checkCircle),
+                leading: IconButton(
+                  icon: Icon(FeatherIcons.checkCircle),
+                  color: _tasks[index].isDone ? Colors.green : Colors.grey,
+                  onPressed: () {
+                    setState(() {
+                      if (_tasks[index].isDone != true) {
+                        _tasks[index].isDone = true;
+                      }
+                    });
+                  },
+                ),
                 trailing: IconButton(
                   icon: const Icon(FeatherIcons.trash2),
                   onPressed: () {

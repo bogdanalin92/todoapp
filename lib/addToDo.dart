@@ -45,12 +45,16 @@ class _AddToDoState extends State<AddToDo> {
                 padding: const EdgeInsets.only(top: 10.0),
                 child: ElevatedButton(
                     onPressed: () {
+                      if (_tC1.text.isEmpty || _tC2.text.isEmpty) {
+                        return;
+                      }
                       widget.taskItem(
                           taskItem: TaskItemValue(
-                              title: _tC1.text ?? "Task 1",
-                              description: _tC2.text ?? "No description",
+                              title: _tC1.text,
+                              description: _tC2.text,
                               isDone: false)); // Print the task
                       _tC1.clear();
+                      _tC2.clear();
                     },
                     child: Text("Add Task"))),
           ],
