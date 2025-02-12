@@ -1,16 +1,8 @@
 # todoapp
 
-A new Flutter project.
+A simple ToDo App in flutter.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+| Features | Description |
+| ----------- | ----------- |
+| Store local task | Used package shared_preferences for storing the list of task |
+| Gesture control | Mark down or delete tasks swiping right to mark as done and left to delete  |
