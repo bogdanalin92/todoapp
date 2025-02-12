@@ -70,7 +70,7 @@ class _MainScreenState extends State<MainScreen> {
                             padding: const EdgeInsets.all(12.0),
                             height:
                                 300, //MediaQuery.of(context).size.height * 1,
-                            child: AddToDo(
+                            child: addToDo(
                               taskItem: changeMenuString,
                             ),
                           ),

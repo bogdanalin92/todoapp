@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:todoapp/models.dart';
 
-class AddToDo extends StatefulWidget {
+class addToDo extends StatefulWidget {
   final void Function({required TaskItemValue taskItem}) taskItem;
-  const AddToDo({super.key, required this.taskItem});
+  const addToDo({super.key, required this.taskItem});
 
   @override
-  State<AddToDo> createState() => _AddToDoState();
+  State<addToDo> createState() => _AddToDoState();
 }
 
-class _AddToDoState extends State<AddToDo> {
+class _AddToDoState extends State<addToDo> {
   late TextEditingController _tC1;
   late TextEditingController _tC2;
   @override
