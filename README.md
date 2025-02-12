@@ -9,7 +9,5 @@ A simple ToDo App in flutter.
 
 Package used:
 ```
-{
 https://pub.dev/packages/shared_preferences
-}
 ```
