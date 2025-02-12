@@ -10,8 +10,8 @@ class AddToDo extends StatefulWidget {
 }
 
 class _AddToDoState extends State<AddToDo> {
-  TextEditingController _tC1 = TextEditingController();
-  TextEditingController _tC2 = TextEditingController();
+  late TextEditingController _tC1;
+  late TextEditingController _tC2;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -22,7 +22,7 @@ class _AddToDoState extends State<AddToDo> {
             Padding(
               padding: const EdgeInsets.all(5.0),
               child: TextField(
-                controller: _tC1,
+                controller: _tC1 = TextEditingController(),
                 decoration: InputDecoration(
                   contentPadding: const EdgeInsets.all(5.0),
                   hintText: "Enter your task name",
@@ -33,7 +33,7 @@ class _AddToDoState extends State<AddToDo> {
             Padding(
               padding: const EdgeInsets.all(5.0),
               child: TextField(
-                controller: _tC2,
+                controller: _tC2 = TextEditingController(),
                 decoration: InputDecoration(
                   contentPadding: const EdgeInsets.all(5.0),
                   hintText: "Enter your task description",
