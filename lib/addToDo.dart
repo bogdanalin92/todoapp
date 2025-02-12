@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:todoapp/models.dart';
 
 class AddToDo extends StatefulWidget {
-  void Function({required TaskItemValue taskItem}) taskItem;
-  AddToDo({super.key, required this.taskItem});
+  final void Function({required TaskItemValue taskItem}) taskItem;
+  const AddToDo({super.key, required this.taskItem});
 
   @override
   State<AddToDo> createState() => _AddToDoState();
