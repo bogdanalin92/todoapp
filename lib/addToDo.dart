@@ -18,7 +18,7 @@ class _AddToDoState extends State<AddToDo> {
       children: [
         Column(
           children: [
-            Text("Add a new To-Do"),
+            Text("Add a new Task"),
             Padding(
               padding: const EdgeInsets.all(5.0),
               child: TextField(
