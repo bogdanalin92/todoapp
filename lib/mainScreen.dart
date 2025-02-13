@@ -106,18 +106,18 @@ class _MainScreenState extends State<MainScreen> {
                   showModalBottomSheet(
                       context: context,
                       useSafeArea: true,
-                      elevation: 3,
+                      elevation: 2,
                       enableDrag: true,
                       showDragHandle: true,
                       builder: (context) {
                         return Padding(
                           padding: EdgeInsets.only(
-                              bottom: MediaQuery.of(context).viewInsets.bottom *
-                                  0.9),
+                              bottom: MediaQuery.of(context).viewInsets.bottom +
+                                  10),
                           child: Container(
-                            padding: const EdgeInsets.all(12.0),
+                            padding: const EdgeInsets.all(10.0),
                             height:
-                                300, //MediaQuery.of(context).size.height * 1,
+                                350, //MediaQuery.of(context).size.height * 1,
                             child: addToDo(
                               taskItem: changeMenuString,
                             ),
