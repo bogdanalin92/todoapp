@@ -92,54 +92,22 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        floatingActionButton: FloatingActionButton(
+          backgroundColor: Theme.of(context).primaryColor,
+          child: const Icon(
+            FeatherIcons.filePlus,
+            color: Colors.white,
+            opticalSize: 2,
+          ),
+          onPressed: () {
+            showAddModal();
+          },
+        ),
         drawer: const DrawerTemp(),
         appBar: AppBar(
           centerTitle: true,
           title: const Text('Todo App'),
           backgroundColor: Theme.of(context).primaryColor,
-          actions: [
-            Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: GestureDetector(
-                onTap: () {
-                  // Add task
-                  showModalBottomSheet(
-                      context: context,
-                      useSafeArea: true,
-                      elevation: 2,
-                      enableDrag: true,
-                      showDragHandle: true,
-                      isScrollControlled: true,
-                      builder: (context) {
-                        return Padding(
-                          padding: EdgeInsets.only(
-                              bottom: MediaQuery.of(context).viewInsets.bottom),
-                          child: IntrinsicHeight(
-                            child: Container(
-                              padding: const EdgeInsets.all(10.0),
-                              constraints: BoxConstraints(
-                                  minHeight:
-                                      MediaQuery.of(context).size.height * 0.25,
-                                  maxHeight:
-                                      MediaQuery.of(context).size.height *
-                                          0.75),
-                              child: addToDo(
-                                taskItem: changeMenuString,
-                              ),
-                            ),
-                          ),
-                        );
-                      });
-                },
-                child: Icon(
-                  FeatherIcons.plusCircle,
-                  color: Colors.white70,
-                  size: 28,
-                  weight: 3,
-                ),
-              ),
-            )
-          ],
         ),
         body: ListView.builder(
             itemCount: _tasks.length,
@@ -196,5 +164,32 @@ class _MainScreenState extends State<MainScreen> {
                 ),
               );
             }));
+  }
+
+  void showAddModal() {
+    showModalBottomSheet(
+        context: context,
+        useSafeArea: true,
+        elevation: 2,
+        enableDrag: true,
+        showDragHandle: true,
+        isScrollControlled: true,
+        builder: (context) {
+          return Padding(
+            padding: EdgeInsets.only(
+                bottom: MediaQuery.of(context).viewInsets.bottom),
+            child: IntrinsicHeight(
+              child: Container(
+                padding: const EdgeInsets.all(10.0),
+                constraints: BoxConstraints(
+                    minHeight: MediaQuery.of(context).size.height * 0.25,
+                    maxHeight: MediaQuery.of(context).size.height * 0.75),
+                child: addToDo(
+                  taskItem: changeMenuString,
+                ),
+              ),
+            ),
+          );
+        });
   }
 }
