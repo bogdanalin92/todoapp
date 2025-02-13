@@ -109,17 +109,23 @@ class _MainScreenState extends State<MainScreen> {
                       elevation: 2,
                       enableDrag: true,
                       showDragHandle: true,
+                      isScrollControlled: true,
                       builder: (context) {
                         return Padding(
                           padding: EdgeInsets.only(
-                              bottom: MediaQuery.of(context).viewInsets.bottom +
-                                  10),
-                          child: Container(
-                            padding: const EdgeInsets.all(10.0),
-                            height:
-                                350, //MediaQuery.of(context).size.height * 1,
-                            child: addToDo(
-                              taskItem: changeMenuString,
+                              bottom: MediaQuery.of(context).viewInsets.bottom),
+                          child: IntrinsicHeight(
+                            child: Container(
+                              padding: const EdgeInsets.all(10.0),
+                              constraints: BoxConstraints(
+                                  minHeight:
+                                      MediaQuery.of(context).size.height * 0.25,
+                                  maxHeight:
+                                      MediaQuery.of(context).size.height *
+                                          0.75),
+                              child: addToDo(
+                                taskItem: changeMenuString,
+                              ),
                             ),
                           ),
                         );
