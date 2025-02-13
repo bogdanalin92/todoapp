@@ -1,9 +1,13 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:todoapp/mainScreen.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+
   runApp(const TodoApp());
 }
 
@@ -26,6 +30,7 @@ class _TodoAppState extends State<TodoApp> {
         useMaterial3: true,
       ),
       home: MainScreen(),
+      darkTheme: ThemeData.dark(),
     );
   }
 }
