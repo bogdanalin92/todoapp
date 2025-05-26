@@ -65,7 +65,10 @@ class _MainScreenState extends State<MainScreen> {
         context: context,
         builder: (context) => AlertDialog(
           title: const Text("Already a task with the same name exists!"),
-          content: const Text("Already exist!"),
+          content: const Text("Already exist. Please change the name."),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.0),
+          ),
           actions: [
             TextButton(
                 onPressed: () {
